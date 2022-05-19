@@ -1,0 +1,74 @@
+<?php
+session_start();
+set_time_limit(0);
+date_default_timezone_set('America/Mexico_City');
+require("man_funciones.php");
+$restringir=true;
+//if(isset($_SESSION['username']) )
+//{
+	$usr = 'aterrazas' ;
+	$level=2;
+	$descripcion="evaluacionm.php - Evaluacion del modelo";
+	require("log.php");
+	generaLogs_sesion($usr,$descripcion);
+
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<title>Evalación modelo</title>
+</head>
+<style>
+.icon-bar {
+	top: 0px;
+	width: 100%;
+	text-align: center;
+	background-color: #555;
+	overflow: auto;
+}
+.icon-bar a {
+	
+	<?php
+	if($level==2){
+	?>
+	width: 25%;
+	<?php
+	}
+	//if($level==2){  width: 16.6%;
+	?>
+	
+	<?php
+	//}
+	?>
+
+	
+	padding: 5px 0;
+	float: left;
+	transition: all 0.3s ease;
+	color: white;
+	font-size: 15px;
+}
+
+.icon-bar a:hover {
+	background-color: #999;
+	color: white;
+}
+</style>
+<body>
+<div class="navbar navbar-fixed-top"; >
+<?php
+require("bar.php")
+?>
+</div >
+<div >
+		<?php
+              include('EMOD/informe_resumen.html');
+         ?>
+</div>
+</body>
+</html>
